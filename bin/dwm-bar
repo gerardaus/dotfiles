@@ -1,0 +1,34 @@
+#!/bin/sh
+
+volume() {
+  vol=$(amixer -M -D pulse get Master | grep -m 1 -o -E "[[:digit:]]+%")
+  echo "Volume: ${vol}"
+}
+
+battery() {
+  pct=$(acpi -b | cut -d, -f2 | tr -d '[:space:]')
+  echo Batt: ${pct}
+}
+
+brightness() {
+   echo Brightness: $(light | cut -d. -f1)%
+}
+
+status() {
+  echo " "
+  volume
+  echo "|"
+  brightness
+  echo "|"
+  battery
+  echo "|"
+  echo $(date "+%b %d | %H:%M")
+  echo " "
+}
+
+while :; do
+  xsetroot -name "$(status | tr '\n' ' ' )"
+  sleep 1m &
+  echo $! > /tmp/dwm-bar-sleep.pid
+  wait
+done

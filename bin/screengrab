@@ -1,0 +1,3 @@
+#!/bin/bash
+
+maim ~/images/shots/$(date +%s).png

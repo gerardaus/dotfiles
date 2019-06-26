@@ -1,0 +1,90 @@
+---
+- hosts: all
+  tasks:
+    - copy:
+        src: xinitrc
+        dest: /home/g/.xinitrc
+        owner: g
+        group: users
+
+    - copy:
+        src: xprofile
+        dest: /home/g/.xprofile
+        owner: g
+
+    - copy:
+        src: zshrc
+        dest: /home/g/.zshrc
+        owner: g
+        group: users
+
+    - copy:
+        src: xprofile
+        dest: /home/g/.xprofile
+        owner: g
+        group: users
+        group: users
+
+    - copy:
+        src: "{{ item }}"
+        dest: /usr/local/bin
+        owner: g
+        group: users
+        mode: u+x
+      with_items:
+        - bin/dwm-brightness
+        - bin/dwm-bar
+        - bin/dwm-bar-restart
+        - bin/screengrab
+        - bin/screengrab-select
+      become: yes
+
+    - pacman: 
+        name: 
+          - xorg-server
+          - xorg-xinit
+          - libxft
+          - libxinerama
+          - firefox
+          - dmenu
+          - alsa-utils
+          - light
+          - zsh
+          - acpi
+          - xorg-xsetroot
+          - feh
+          - bluez-utils
+          - bluez
+          - xorg-xrandr
+          - nvidia
+          - compton
+          - telegram-desktop
+          - redshift
+          - pulseaudio
+          - pulseaudio-bluetooth
+          - pulseaudio-alsa
+          - mplayer
+          - zsh
+          - tree
+          - ruby
+          - chromium
+          - maim
+        state: present
+      become: yes
+
+
+    - lineinfile:
+        path: /etc/bluetooth/main.conf
+        regexp: "^AutoEnable="
+        line: AutoEnable=true
+      become: yes
+
+    # allows laptop lid to be closed
+    - lineinfile:
+        path: /etc/systemd/logind.conf
+        regexp: "^HandleLidSwitchExternalPower"
+        line: HandleLidSwitchExternalPower=ignore
+      become: yes
+
+
+    

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+$@
+
+kill $(cat /tmp/dwm-bar-sleep.pid)

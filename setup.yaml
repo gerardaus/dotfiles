@@ -1,0 +1,53 @@
+---
+- hosts: all
+  tasks:
+    - pacman: 
+        name: 
+          - vim
+          - dialog
+          - htop
+          - base-devel
+          - networkmanager
+          - git
+          - docker
+          - strace
+          - bind-tools
+          - sysstat
+          - zsh
+        state: present
+      become: yes
+
+    - pacman:
+        name:
+         - vi
+        state: absent
+      become: yes
+
+    - systemd:
+        state: started
+        enabled: yes
+        name: NetworkManager
+
+    - authorized_key:
+        user: g
+        state: present
+        key: "{{ lookup('file', 'id_rsa.pub') }}"
+
+    - copy:
+        src: vimrc
+        dest: /home/g/.vimrc
+        owner: g
+        group: users
+
+    - copy:
+        src: bashrc
+        dest: /home/g/.bashrc
+        owner: g
+        group: users  
+
+    - user:
+        name: g
+        groups: docker
+        append: yes
+        shell: /bin/zsh
+      become: yes
