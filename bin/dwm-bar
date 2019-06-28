@@ -1,17 +1,25 @@
 #!/bin/sh
 
+# https://github.com/chrisbra/unicode.vim
+
 volume() {
   vol=$(amixer -M -D pulse get Master | grep -m 1 -o -E "[[:digit:]]+%")
-  echo "Volume: ${vol}"
+  echo "🔊 ${vol}"
 }
 
-battery() {
-  pct=$(acpi -b | cut -d, -f2 | tr -d '[:space:]')
-  echo Batt: ${pct}
+battery () {
+  pct=$(acpi -b | cut -d, -f2 | tr -d '%' | sed 's/ //g')
+  remaining=$(($pct/10))
+  used=$((10-$pct/10))
+  battery_status=$(acpi -b | awk '{print$3}' | tr -d \,)
+
+  remaining_stars=$(printf '*%.0s' $(seq 1 ${remaining}))
+  used_stars=$(printf ' %.0s' $(seq 1 ${used}))
+  echo "${pct}% [${remaining_stars}${used_stars}] ${battery_status}"
 }
 
 brightness() {
-   echo Brightness: $(light | cut -d. -f1)%
+   echo "Brightness: $(light | cut -d. -f1)%"
 }
 
 status() {
