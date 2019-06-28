@@ -69,6 +69,7 @@
           - ruby
           - chromium
           - maim
+          - ttf-droid # switch chromium to use this font for proper pdf rendering
         state: present
       become: yes
 

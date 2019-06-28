@@ -4,6 +4,6 @@ compton &
 
 /usr/local/bin/dwm-bar &
 
-feh --bg-scale /home/g/projects/dotfiles/ansible/wallpapers/opo0328a.tif &
+feh --bg-scale /home/g/Downloads/58615.jpg
 
 xset r rate 200 30

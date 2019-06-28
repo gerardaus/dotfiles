@@ -2,6 +2,15 @@
 
 # https://github.com/chrisbra/unicode.vim
 
+bluetooth() {
+  status=$(echo show | bluetoothctl| awk '/Powered/{print $2;}')
+  if [[ ${status} == "yes" ]]; then
+    echo "BT: on"
+  else
+    echo "BT: off"
+  fi
+}
+
 volume() {
   vol=$(amixer -M -D pulse get Master | grep -m 1 -o -E "[[:digit:]]+%")
   echo "🔊 ${vol}"
@@ -30,6 +39,8 @@ status() {
   echo "|"
   battery
   echo "|"
+	bluetooth
+	echo "|"
   echo $(date "+%b %d | %H:%M")
   echo " "
 }
