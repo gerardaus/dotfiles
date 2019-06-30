@@ -37,6 +37,7 @@
         - bin/dwm-bar-restart
         - bin/screengrab
         - bin/screengrab-select
+        - bin/screen-lock
       become: yes
 
     - pacman: 
@@ -70,6 +71,15 @@
           - chromium
           - maim
           - ttf-droid # switch chromium to use this font for proper pdf rendering
+          # printing: sudo systemctl enable org.cups.cupsd.service
+          # sudo systemctl start org.cups.cupsd.service
+          - cups
+          - cups-pdf # print to pdf
+          - hplip # hp drivers - then run sudo hp-setup -i 
+          - unzip
+          - aria2
+          - vlc
+          - xautolock
         state: present
       become: yes
 
