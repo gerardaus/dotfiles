@@ -80,6 +80,9 @@
           - aria2
           - vlc
           - xautolock
+          - nmap
+          - autojump
+          - exfat-utils # sdcard  mount
         state: present
       become: yes
 

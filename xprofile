@@ -4,8 +4,8 @@ compton &
 
 /usr/local/bin/dwm-bar &
 
-feh --bg-scale /home/g/Downloads/58615.jpg &
+feh --bg-fill /home/g/Downloads/58615.jpg &
 
 xset r rate 200 30 &
 
-xautolock -time 1 -locker screen-lock &
+xautolock -time 5 -locker screen-lock &
