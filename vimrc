@@ -12,7 +12,11 @@ let mapleader = ","
 nnoremap <silent> ,t :CommandT<CR>
 nnoremap <silent> ,b :CommandTMRU<CR>
 
+" splits
+set splitbelow
+set splitright
 nnoremap ,, <C-w><C-w>
+
 nnoremap ; :
 let g:netrc_banner = 0
 
@@ -72,3 +76,24 @@ vmap <leader>ja <Plug>(JavaComplete-Generate-AccessorSetterGetter)
 nmap <silent> <buffer> <leader>jn <Plug>(JavaComplete-Generate-NewClass)
 nmap <silent> <buffer> <leader>jN <Plug>(JavaComplete-Generate-ClassInFile)
 
+map <C-n> :NERDTreeToggle<CR>
+
+" google java formatter
+call glaive#Install()
+
+Glaive codefmt google_java_executable="java -jar /home/g/.vim/bundle/google-java-format-1.7-all-deps.jar"
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+"  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer yapf
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType vue AutoFormatBuffer prettier
+augroup END
+
+" follows click of mouse
+"set mouse=a

@@ -1,4 +1,7 @@
 #!/bin/sh
 
-xrandr --output HDMI-0 --auto --primary --output DP-2 --auto --below HDMI-0
+xrandr --output HDMI-0 --auto --primary --output DP-2 --auto --left-of HDMI-0
+xset r rate 200 30 &
+feh --bg-fill /home/g/Downloads/58615.jpg &
+
 

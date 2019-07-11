@@ -9,3 +9,5 @@ feh --bg-fill /home/g/Downloads/58615.jpg &
 xset r rate 200 30 &
 
 xautolock -time 5 -locker screen-lock &
+
+xrdb ~/.Xresources
