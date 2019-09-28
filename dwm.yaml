@@ -23,7 +23,20 @@
         dest: /home/g/.xprofile
         owner: g
         group: users
-        group: users
+
+    - copy:
+        src: psmouse.conf
+        dest: /etc/modprobe.d/psmouse.conf
+        owner: root
+        group: root
+      become: yes
+
+    - copy:
+        src: 70-synaptics.conf
+        dest: /etc/X11/xorg.conf.d
+        owner: root
+        group: root
+      become: yes
 
     - copy:
         src: "{{ item }}"
@@ -84,6 +97,10 @@
           - autojump
           - exfat-utils # sdcard  mount
           - ctags
+          - vault
+          - jq
+          - recordmydesktop
+          - xf86-input-synaptics
         state: present
       become: yes
 

@@ -4,10 +4,10 @@ compton &
 
 /usr/local/bin/dwm-bar &
 
-feh --bg-fill /home/g/Downloads/58615.jpg &
+feh --bg-fill /home/g/projects/dotfiles/ansible/wallpapers/opo0328a.tif &
 
 xset r rate 200 30 &
 
-xautolock -time 5 -locker screen-lock &
+xautolock -time 15 -locker screen-lock &
 
 xrdb ~/.Xresources
