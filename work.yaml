@@ -4,6 +4,7 @@
     - pacman: 
         name: 
           - maven
+          - python-pip
         state: present
       become: yes
 

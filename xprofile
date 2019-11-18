@@ -4,10 +4,15 @@ compton &
 
 /usr/local/bin/dwm-bar &
 
-feh --bg-fill /home/g/projects/dotfiles/ansible/wallpapers/opo0328a.tif &
+feh --bg-fill /home/g/projects/dotfiles/ansible/wallpapers/ibm01.jpg &
 
 xset r rate 200 30 &
 
 xautolock -time 15 -locker screen-lock &
 
 xrdb ~/.Xresources
+
+# gets rid of error message associated with starting
+# pavucontrol (GTK+ errors)
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+

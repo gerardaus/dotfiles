@@ -101,9 +101,26 @@
           - jq
           - recordmydesktop
           - xf86-input-synaptics
+          - asciinema
+          - ranger
         state: present
       become: yes
 
+    # CPU and powersaving related packages and configuration
+    - pacman: 
+        name: 
+          - tlp
+          - tp_smapi
+          - acpi_call
+        state: present
+      become: yes
+
+    - copy:
+        src: tlp
+        dest: /etc/default/
+        owner: root
+        group: root
+      become: yes
 
     - lineinfile:
         path: /etc/bluetooth/main.conf
@@ -118,5 +135,3 @@
         line: HandleLidSwitchExternalPower=ignore
       become: yes
 
-
-    

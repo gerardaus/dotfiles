@@ -24,8 +24,13 @@ battery () {
   battery_status=$(acpi -b | awk '{print$3}' | tr -d \,)
 
   remaining_stars=$(printf '*%.0s' $(seq 1 ${remaining}))
-  used_stars=$(printf ' %.0s' $(seq 1 ${used}))
-  echo "${pct}% [${remaining_stars}] ${battery_status}"
+  if [[ ${used} == 0 ]]; then
+    used_stars=""
+  else
+    used_stars=$(printf ' %.0s' $(seq 1 ${used}))
+  fi 
+
+  echo "${pct}% [${remaining_stars}${used_stars}] ${battery_status}"
 }
 
 brightness() {

@@ -108,6 +108,7 @@ alias c='clear'
 alias h='history'
 alias n='vim ~/NOTES'
 alias t='tree -C'
+alias p='ps awxu'
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
