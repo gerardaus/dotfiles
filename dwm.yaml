@@ -108,6 +108,7 @@
           - xf86-input-synaptics
           - asciinema
           - ranger
+          - noto-fonts-emoji
         state: present
       become: yes
 
