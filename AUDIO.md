@@ -5,3 +5,11 @@ bluetooth headset / speaker
   eg. pacmd set-card-profile 2 a2dp_sink
 
   pavucontrol
+
+trouble shooting
+  ONLY DUMMY OUTPUT is showing
+  remove all files under ~/.pulse
+  restart pulseaudio
+  pulseaudio -k
+  pulseaudio --start
+      

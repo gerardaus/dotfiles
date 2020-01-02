@@ -13,6 +13,11 @@
         owner: g
 
     - copy:
+        src: Xresources
+        dest: /home/g/.Xresources
+        owner: g
+
+    - copy:
         src: zshrc
         dest: /home/g/.zshrc
         owner: g

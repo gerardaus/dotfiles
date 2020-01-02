@@ -1,18 +1,16 @@
 #!/bin/sh
 
 compton &
-
-/usr/local/bin/dwm-bar &
-
-feh --bg-fill /home/g/projects/dotfiles/ansible/wallpapers/ibm01.jpg &
-
-xset r rate 200 30 &
-
-xautolock -time 15 -locker screen-lock &
-
 xrdb ~/.Xresources
+xset r rate 200 30 &
+xsetroot -cursor_name left_ptr
+xautolock -time 15 -locker screen-lock &
+feh --bg-fill /home/g/projects/dotfiles/ansible/wallpapers/expanse1.jpg
+/home/g/.config/polybar/launch.sh 
 
 # gets rid of error message associated with starting
 # pavucontrol (GTK+ errors)
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
+st &
+st &

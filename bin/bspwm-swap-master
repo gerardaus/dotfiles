@@ -1,0 +1,6 @@
+#!/bin/sh
+
+bspc node --swap biggest.local
+
+# get the last focused node to swap with
+NODE_ID=$(bspc query -N -n last.local)

@@ -5,9 +5,9 @@
 bluetooth() {
   status=$(echo show | bluetoothctl| awk '/Powered/{print $2;}')
   if [[ ${status} == "yes" ]]; then
-    echo "BT: on"
+    echo "Bluetooth: on"
   else
-    echo "BT: off"
+    echo "Bluetooth: off"
   fi
 }
 
@@ -37,8 +37,15 @@ brightness() {
    echo "Brightness: $(light | cut -d. -f1)%"
 }
 
+load() {
+  load=$(w | head -n 1 | awk '{print$8" "$9, $10}')
+  echo "${load}"
+}
+
 status() {
-  echo " "
+  echo " Load:"
+  load
+  echo "|"
   volume
   echo "|"
   brightness
