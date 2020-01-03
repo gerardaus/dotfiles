@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo optimus-manager --switch intel --no-confirm \
+  && sudo prime-switch \
+  && startx

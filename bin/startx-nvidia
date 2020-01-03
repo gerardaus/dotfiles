@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo optimus-manager --switch nvidia --no-confirm \
+  && sudo prime-switch \
+  && startx
