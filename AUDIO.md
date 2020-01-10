@@ -13,3 +13,5 @@ trouble shooting
   pulseaudio -k
   pulseaudio --start
       
+mopidy
+  https://github.com/mopidy/mopidy/issues/775

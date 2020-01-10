@@ -30,6 +30,12 @@
         group: users
 
     - copy:
+        src: config/gtk-3.0
+        dest: /home/g/.local
+        owner: g
+        group: users
+
+    - copy:
         src: psmouse.conf
         dest: /etc/modprobe.d/psmouse.conf
         owner: root

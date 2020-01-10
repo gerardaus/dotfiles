@@ -14,6 +14,7 @@
           - bind-tools
           - sysstat
           - zsh
+          - openbsd-netcat
         state: present
       become: yes
 

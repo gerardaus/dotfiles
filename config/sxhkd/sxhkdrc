@@ -41,8 +41,8 @@ alt + {j,k}
 	bspc node -f {next,prev}.local
 
 # close and kill
-alt + shift + c
-	bspc node -k
+alt + shift +{k,c}
+	bspc node -{k,c}
 
 # dmenu
 alt + p
