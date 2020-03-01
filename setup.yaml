@@ -3,6 +3,7 @@
   tasks:
     - pacman: 
         name: 
+          - ntp
           - vim
           - dialog
           - htop
