@@ -2,6 +2,11 @@
 
 # https://github.com/chrisbra/unicode.vim
 
+cpu_temp() {
+  temp=$(sensors -j | jq '."coretemp-isa-0000"."Core 0".temp2_input')
+  echo "CPU Temp: ${temp}"
+}
+
 bluetooth() {
   status=$(echo show | bluetoothctl| awk '/Powered/{print $2;}')
   if [[ ${status} == "yes" ]]; then
@@ -39,6 +44,8 @@ status() {
   brightness
   echo "|"
   battery
+  echo "|"
+  cpu_temp
   echo "|"
 	bluetooth
 	echo "|"

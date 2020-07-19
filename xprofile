@@ -4,7 +4,7 @@ compton &
 
 /usr/local/bin/dwm-bar &
 
-feh --bg-fill /home/g/Downloads/58615.jpg &
+feh --bg-fill /home/g/Downloads/wp3067724-the-expanse-wallpapers.png &
 
 xset r rate 200 30 &
 
