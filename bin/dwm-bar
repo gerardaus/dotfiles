@@ -49,7 +49,7 @@ status() {
   echo "|"
 	bluetooth
 	echo "|"
-  echo $(date "+%b %d | %H:%M")
+  echo $(date "+%a +%b %d | %H:%M")
   echo " "
 }
 
