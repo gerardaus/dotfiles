@@ -2,12 +2,17 @@
 
 # https://github.com/chrisbra/unicode.vim
 
+cpu_temp() {
+  temp=$(sensors -j | jq '."coretemp-isa-0000"."Core 0"."temp2_input"')
+  echo "CPU Temp: ${temp}"
+}
+
 bluetooth() {
   status=$(echo show | bluetoothctl| awk '/Powered/{print $2;}')
   if [[ ${status} == "yes" ]]; then
-    echo "Bluetooth: on"
+    echo "BT: on"
   else
-    echo "Bluetooth: off"
+    echo "BT: off"
   fi
 }
 
@@ -24,12 +29,7 @@ battery () {
   battery_status=$(acpi -b | awk '{print$3}' | tr -d \,)
 
   remaining_stars=$(printf '*%.0s' $(seq 1 ${remaining}))
-  if [[ ${used} == 0 ]]; then
-    used_stars=""
-  else
-    used_stars=$(printf ' %.0s' $(seq 1 ${used}))
-  fi 
-
+  used_stars=$(printf ' %.0s' $(seq 1 ${used}))
   echo "${pct}% [${remaining_stars}${used_stars}] ${battery_status}"
 }
 
@@ -37,24 +37,19 @@ brightness() {
    echo "Brightness: $(light | cut -d. -f1)%"
 }
 
-load() {
-  load=$(w | head -n 1 | awk '{print$8" "$9, $10}')
-  echo "${load}"
-}
-
 status() {
-  echo " Load:"
-  load
-  echo "|"
+  echo " "
   volume
   echo "|"
   brightness
   echo "|"
   battery
   echo "|"
+  cpu_temp
+  echo "|"
 	bluetooth
 	echo "|"
-  echo $(date "+%b %d | %H:%M")
+  echo $(date "+%a +%b %d | %H:%M")
   echo " "
 }
 

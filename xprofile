@@ -5,7 +5,7 @@ xrdb ~/.Xresources
 xset r rate 200 30 &
 xsetroot -cursor_name left_ptr
 xautolock -time 15 -locker screen-lock &
-feh --bg-fill /home/g/projects/dotfiles/ansible/wallpapers/expanse1.jpg
+feh --bg-fill /home/g/Downloads/wp3067746-the-expanse-wallpapers.jpg
 
 /usr/local/bin/dwm-bar &
 
