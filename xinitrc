@@ -2,4 +2,8 @@
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-exec bspwm
+while :; do
+  dwm 2> ~/.dwm.log || break
+done
+
+#exec bspwm
