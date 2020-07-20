@@ -1,12 +1,13 @@
 #!/bin/sh
 
-compton &
+compton --vsync --backend glx &
 xrdb ~/.Xresources
 xset r rate 200 30 &
 xsetroot -cursor_name left_ptr
 xautolock -time 15 -locker screen-lock &
 feh --bg-fill /home/g/projects/dotfiles/ansible/wallpapers/expanse1.jpg
 /home/g/.config/polybar/launch.sh 
+sxhkd&
 
 # gets rid of error message associated with starting
 # pavucontrol (GTK+ errors)
