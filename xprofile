@@ -5,7 +5,8 @@ xrdb ~/.Xresources
 xset r rate 200 30 &
 xsetroot -cursor_name left_ptr
 xautolock -time 15 -locker screen-lock &
-feh --bg-fill /home/g/Downloads/wp3067746-the-expanse-wallpapers.jpg
+feh --bg-fill /home/g/Downloads/The\ Expanse\ Wallpaper\ 10\ \ \ 2048\ X\ 1280\ stmednet.jpg
+
 
 /usr/local/bin/dwm-bar &
 
