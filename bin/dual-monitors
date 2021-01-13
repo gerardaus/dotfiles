@@ -1,0 +1,10 @@
+#!/bin/bash
+
+LAPTOP=eDP-1-1
+PORTABLE=DP-1
+
+if xrandr |grep "DP-1 connected"; then
+  echo "configuring dual monitors..."
+  xrandr --output ${LAPTOP} --primary --auto --output ${PORTABLE} --right-of ${LAPTOP}
+  feh --bg-fill /home/g/Downloads/The\ Expanse\ Wallpaper\ 10\ \ \ 2048\ X\ 1280\ stmednet.jpg /home/g/Downloads/wp3067837-the-expanse-wallpapers.jpg
+fi

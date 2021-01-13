@@ -2,6 +2,12 @@
 - hosts: all
   tasks:
     - copy:
+        src: etc/systemd/logind.conf
+        dest: /etc/systemd/logind.conf
+        owner: root
+        group: root
+      become:  yes
+    - copy:
         src: xinitrc
         dest: /home/g/.xinitrc
         owner: g
