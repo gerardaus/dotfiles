@@ -123,6 +123,7 @@
           - asciinema
           - ranger
           - noto-fonts-emoji
+          - pulsemixer
         state: present
       become: yes
 

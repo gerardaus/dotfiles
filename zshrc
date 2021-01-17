@@ -103,12 +103,15 @@ source $ZSH/oh-my-zsh.sh
 #
 export SHELL=/bin/zsh
 
+set -o vi
+
 alias v='vim'
 alias c='clear'
 alias h='history'
 alias n='vim ~/NOTES'
 alias t='tree -C'
 alias p='ps awxu'
+alias s=`systemctl`
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
