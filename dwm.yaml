@@ -70,7 +70,7 @@
         - bin/screen-lock
         - bin/startx-intel
         - bin/startx-nvidia
-        - bin/dwm-surf
+        - bin/dmenu-surf
       become: yes
 
     - pacman: 
