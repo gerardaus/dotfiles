@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo | dmenu -p search "$@" | jq -sRr @uri | awk '{print"/usr/local/bin/surf -z 1.75 -g https://duckduckgo.com?q="$0}' | /bin/sh &
+
