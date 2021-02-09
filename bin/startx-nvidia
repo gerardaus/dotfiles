@@ -1,5 +1,8 @@
 #!/bin/bash
 
-sudo optimus-manager --switch nvidia --no-confirm \
-  && sudo prime-switch \
-  && startx
+set -e
+
+sudo optimus-manager --switch nvidia --no-confirm 
+sudo prime-switch 
+sleep 2
+startx

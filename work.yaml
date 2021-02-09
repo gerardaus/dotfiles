@@ -5,6 +5,7 @@
         name: 
           - maven
           - python-pip
+          - python-virtualenv
         state: present
       become: yes
     - pip:
