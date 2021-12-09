@@ -116,3 +116,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH=$PATH:/home/g/.local/bin
 export VAULT_ADDR=https://vault.quantium.com.au
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
